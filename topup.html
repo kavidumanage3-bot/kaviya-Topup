@@ -78,15 +78,16 @@ transform:translateY(-3px);
 box-shadow:0 8px 25px rgba(255,107,0,0.12);
 }
 
-/* PHOTO FRAME PODDAK LOKU KALA */
+/* PHOTO FRAME DIG KALA + MULU PHOTO PENNA HADALA */
 .card img{
-width:120px; /* 100 > 120 */
-height:120px; /* 100 > 120 */
-object-fit:cover;
+width:140px; /* 120 > 140 */
+height:140px; /* 120 > 140 */
+object-fit: contain; /* cover ain kala, contain damma */
 margin-bottom:14px;
-border-radius:22px; /* lassana round */
-box-shadow:0 5px 15px rgba(0,0,0,0.12);
-border:3px solid #fff;
+border-radius:18px; 
+background:#f8f9fa; /* photo athule khali thana thiyenam gray bg */
+padding:8px; /* lassanata padding ekak */
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
 .card h3{
@@ -111,18 +112,17 @@ font-weight:600;
 margin-left:3px;
 }
 
-/* BUTTON EKA PODDI KALA */
 .buy-btn{
-padding:10px 28px; /* 14px > 10px kiyala podi kala */
+padding:10px 28px;
 background:linear-gradient(90deg, #ff6b00, #ff8a00);
 color:#fff;
 border:none;
 border-radius:50px; 
 font-weight:700;
-font-size:14px; /* 15px > 14px */
+font-size:14px;
 cursor:pointer;
 transition:0.3s;
-width:auto; /* full width ain kala */
+width:auto;
 display:inline-block;
 letter-spacing:0.5px;
 box-shadow:0 4px 12px rgba(255,107,0,0.25);
@@ -229,7 +229,7 @@ const packagesData = [
   {
     title:"MEMBERSHIP",
     items:[
-      ["WEEKLY LITE MEMBERSHIP",130,"logo.png"],
+      ["WEEKLY LITE MEMBERSHIP",130,"membership_lite.jpg"],
       ["WEEKLY MEMBERSHIP",520,"membership_weekly.jpg"],
       ["MONTHLY MEMBERSHIP",2560,"membership_monthly.jpg"],
       ["VIP MEMBERSHIP",3080,"vip.jpg"],
