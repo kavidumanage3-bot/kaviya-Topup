@@ -4,19 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KAVIYA STORE | Free Fire Top Up</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#ffffff;color:#222;}
-header{width:100%;height:75px;background:#fff;display:flex;align-items:center;justify-content:center;padding:0 30px;box-shadow:0 5px 15px rgba(0,0,0,0.08);position:sticky;top:0;z-index:999;}
+header{width:100%;height:75px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 30px;box-shadow:0 5px 15px rgba(0,0,0,0.08);position:sticky;top:0;z-index:999;}
 .logo{font-size:28px;font-weight:700;color:#ff6b00;letter-spacing:1px;}
 nav ul{display:flex;list-style:none;gap:25px;}
-nav ul li a{text-decoration:none;color:#222;font-weight:600;transition:0.3s;}
-nav ul li a:hover{color:#ff6b00;}
+nav ul li a{text-decoration:none;color:#222;font-weight:600;transition:0.3s; padding:8px 12px; border-radius:8px;}
+nav ul li a:hover{color:#ff6b00; background:#fff5ec;}
+nav ul li a.active{color:#ff6b00;} /* me page eka highlight karanna */
 .slider-container{max-width:1200px;margin:20px auto;padding:0 20px;}
 .slider{width:100%;height:420px;position:relative;overflow:hidden;border-radius:25px;box-shadow:0 15px 40px rgba(0,0,0,0.12);}
-.slide{position:absolute;width:100%;height:100%;opacity:0;transition:2s ease-in-out;}
+.slide{position:absolute;width:100%;height:100%;opacity:0;transition:0.8s ease-in-out;}
 .slide.active{opacity:1;}
 .slide img{width:100%;height:100%;object-fit:cover;}
 .hero{padding:60px 20px;text-align:center;background: linear-gradient(180deg, #ffffff 0%, #fff5ec 100%);}
@@ -26,7 +27,7 @@ nav ul li a:hover{color:#ff6b00;}
 .topup{display:inline-block;margin-top:30px;padding:12px 35px;background:linear-gradient(90deg, #ff6b00, #ff8a00);color:#fff;text-decoration:none;font-size:17px;border-radius:40px;font-weight:600;transition:0.3s;box-shadow: 0 5px 20px rgba(255,107,0,0.35);}
 .topup:hover{transform:scale(1.08);box-shadow: 0 8px 25px rgba(255,107,0,0.5);}
 
-/* 🔥 FOOTER CSS - MEKA ADD KALA */
+/* 🔥 FOOTER CSS */
 .custom-footer{background:#0a0a0a; color:#ccc; padding:50px 15px 20px; text-align:center; font-family:'Poppins',sans-serif; margin-top:60px;}
 .footer-container{display:flex; flex-wrap:wrap; justify-content:space-around; text-align:left; max-width:1200px; margin:0 auto; gap:30px;}
 .footer-section{width:30%; min-width:250px; margin-bottom:20px;}
@@ -53,7 +54,7 @@ nav ul li a:hover{color:#ff6b00;}
 .footer-bottom{border-top:1px solid #222; margin-top:30px; padding-top:20px; font-size:14px;}
 .float-btn{position:fixed; bottom:20px; right:20px; background:linear-gradient(45deg,#00c6ff,#0072ff); color:white; font-size:24px; width:55px; height:55px; display:flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none; box-shadow:0 5px 20px rgba(0,102,255,0.5); z-index:999; transition:0.3s;}
 .float-btn:hover{transform:scale(1.1);}
-@media(max-width:768px){header{flex-direction:column;height:auto;padding:15px;}nav ul{flex-wrap:wrap;justify-content:center;margin:15px 0;}.slider{height:220px;}.hero img{width:90%;}.hero h1{font-size:32px;}.footer-container{flex-direction:column; text-align:center;}.footer-section{width:100%;}}
+@media(max-width:768px){header{flex-direction:column;height:auto;padding:15px; gap:10px;}nav ul{flex-wrap:wrap;justify-content:center;margin:10px 0; gap:10px;}.slider{height:220px;}.hero img{width:90%;}.hero h1{font-size:32px;}.footer-container{flex-direction:column; text-align:center;}.footer-section{width:100%;}}
 
 </style>
 </head>
@@ -62,27 +63,27 @@ nav ul li a:hover{color:#ff6b00;}
 <div class="logo">KAVIYA STORE</div>
 <nav>
 <ul>
-<li><a href="index.html">HOME</a></li>
+<li><a href="index.html" class="active">HOME</a></li>
 <li><a href="topup.html">TOP UP</a></li>
 <li><a href="diamond.html">DIAMONDS</a></li>
-<li><a href="contact.html">CONTACT</a></li>
+<li><a href="footer.html">CONTACT</a></li>
 </ul>
 </nav>
 </header>
 
 <div class="slider-container">
 <div class="slider">
-<div class="slide active"><img src="IMG-20260702-WA0003.jpg" alt="Free Fire Offer 1" loading="lazy"></div>
-<div class="slide"><img src="IMG-20260709-WA0008.jpg" alt="Free Fire Offer 2" loading="lazy"></div>
-<div class="slide"><img src="IMG-20260729-WA0002.jpg" alt="Free Fire Offer 3" loading="lazy"></div>
+<div class="slide active"><img src="IMG-20260702-WA0003.jpg" alt="Free Fire Offer 1" loading="lazy" width="1200" height="420"></div>
+<div class="slide"><img src="IMG-20260709-WA0008.jpg" alt="Free Fire Offer 2" loading="lazy" width="1200" height="420"></div>
+<div class="slide"><img src="IMG-20260729-WA0002.jpg" alt="Free Fire Offer 3" loading="lazy" width="1200" height="420"></div>
 </div>
 </div>
 
 <section class="hero">
-<img src="IMG-20260729-WA0001.jpg" alt="Free Fire Logo" loading="lazy">
+<img src="IMG-20260729-WA0001.jpg" alt="Free Fire Logo" loading="lazy" width="280" height="280">
 <h1>FREE FIRE</h1>
 <p>Fast & Secure Diamond Top Up</p>
-<a href="topup.html" class="topup">TOP UP NOW</a>
+<a href="topup.html" class="topup" onclick="sendTelegramAlert('👤 Kauru hari TOP UP NOW button eka click kala!')">TOP UP NOW</a>
 </section>
 
 <section style="padding:60px 20px;text-align:center;">
@@ -114,6 +115,53 @@ fetch('footer.html')
 .then(data => {
     document.getElementById('footer').innerHTML = data;
   }).catch(err => console.log('Footer load error:', err));
+
+
+// 🔥 TELEGRAM ALERT CODE
+const BOT_TOKEN = "8802199693:AAFckmH6VXvB9xoHFPFdlKzCOBPxE-7n7To"; // <-- meka oyage bot token eka daanna
+const CHAT_ID = "8324590734"; // <-- oyage telegram chat id eka daanna
+
+function sendTelegramAlert(message) {
+    if(BOT_TOKEN === "YOUR_BOT_TOKEN_HERE") return; // token nathnam yawanne na
+    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+    fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message,
+            parse_mode: 'HTML'
+        })
+    }).catch(err => console.log('Telegram error:', err));
+}
+
+// Kauru hari site eka open karaddi alert yawanna
+window.addEventListener('load', () => {
+    let userAgent = navigator.userAgent;
+    let page = window.location.pathname;
+    let time = new Date().toLocaleString("en-LK");
+
+    fetch('https://api.ipify.org?format=json')
+  .then(res => res.json())
+  .then(data => {
+        let userIP = data.ip;
+        let msg = `<b>🔥 KAVIYA STORE - New Visit</b>\n\n`;
+        msg += `👤 Kauru hari site eka open kala\n`;
+        msg += `🌐 Page: ${page}\n`;
+        msg += `📱 Device: ${userAgent}\n`;
+        msg += `🌍 IP: ${userIP}\n`;
+        msg += `⏰ Time: ${time}`;
+
+        sendTelegramAlert(msg);
+    }).catch(()=>{});
+});
+
+// Menu click karaddi alert yawanna
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', function() {
+        sendTelegramAlert(`👤 Kauru hari "${this.innerText}" page eka click kala`);
+    });
+});
 
 </script>
 
