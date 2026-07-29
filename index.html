@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAVIYA STORE</title>
+<title>KAVIYA STORE | Free Fire Top Up</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -16,104 +17,141 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#fff;
+background:#ffffff;
+color:#222;
 }
 
 header{
-background:#ffffff;
-padding:15px 20px;
+width:100%;
+height:75px;
+background:#fff;
 display:flex;
-justify-content:space-between;
 align-items:center;
-box-shadow:0 3px 10px rgba(0,0,0,.1);
+justify-content:space-between;
+padding:0 30px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
 position:sticky;
 top:0;
-z-index:1000;
+z-index:999;
 }
 
 .logo{
-font-size:24px;
+font-size:28px;
 font-weight:700;
-color:#0066ff;
+color:#ff6b00;
 }
 
 nav ul{
 display:flex;
 list-style:none;
-gap:20px;
+gap:25px;
 }
 
-nav a{
+nav ul li a{
 text-decoration:none;
 color:#222;
 font-weight:600;
 transition:.3s;
 }
 
-nav a:hover{
-color:#0066ff;
+nav ul li a:hover{
+color:#ff6b00;
 }
 
 .login{
-background:#0066ff;
-color:white;
-padding:10px 18px;
-border-radius:30px;
+padding:10px 22px;
+background:#ff6b00;
+color:#fff;
 text-decoration:none;
+border-radius:30px;
 font-weight:600;
 }
 
+.slider{
+width:100%;
+height:420px;
+position:relative;
+overflow:hidden;
+margin-top:10px;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+opacity:0;
+transition:1s;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
 .hero{
-height:500px;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
+padding:60px 20px;
 text-align:center;
-padding:20px;
+}
+
+.hero img{
+width:280px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
 .hero h1{
+margin-top:25px;
 font-size:45px;
-color:#111;
 }
 
 .hero p{
 margin-top:10px;
 font-size:18px;
-color:#555;
+color:#666;
 }
 
-.btn{
-margin-top:25px;
+.topup{
 display:inline-block;
-padding:15px 35px;
-background:#0066ff;
-color:white;
+margin-top:30px;
+padding:15px 45px;
+background:#ff6b00;
+color:#fff;
 text-decoration:none;
+font-size:20px;
 border-radius:40px;
-font-size:18px;
-font-weight:600;
+font-weight:bold;
+transition:.3s;
 }
 
-footer{
-padding:25px;
-text-align:center;
-background:#f5f5f5;
-margin-top:50px;
-color:#555;
+.topup:hover{
+transform:scale(1.05);
 }
 
 @media(max-width:768px){
 
 header{
 flex-direction:column;
-gap:15px;
+height:auto;
+padding:15px;
 }
 
 nav ul{
 flex-wrap:wrap;
 justify-content:center;
+margin:15px 0;
+}
+
+.slider{
+height:220px;
+}
+
+.hero img{
+width:90%;
 }
 
 .hero h1{
@@ -121,43 +159,167 @@ font-size:32px;
 }
 
 }
+
 </style>
 
 </head>
+
 <body>
 
 <header>
 
-<div class="logo">KAVIYA STORE</div>
+<div class="logo">
+KAVIYA STORE
+</div>
 
 <nav>
 <ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="topup.html">Top Up</a></li>
-<li><a href="diamonds.html">Diamonds</a></li>
-<li><a href="contact.html">Contact</a></li>
+<li><a href="index.html">HOME</a></li>
+<li><a href="topup.html">TOP UP</a></li>
+<li><a href="diamond.html">DIAMONDS</a></li>
+<li><a href="contact.html">CONTACT</a></li>
 </ul>
 </nav>
 
-<a href="login.html" class="login">Login</a>
+<a href="login.html" class="login">LOGIN</a>
 
 </header>
 
+<div class="slider">
+
+<div class="slide active">
+<img src="images/slider1.jpg">
+</div>
+
+<div class="slide">
+<img src="images/slider2.jpg">
+</div>
+
+<div class="slide">
+<img src="images/slider3.jpg">
+</div>
+
+</div>
+
 <section class="hero">
 
-<h1>Welcome to KAVIYA STORE</h1>
+<img src="images/freefire.jpg">
 
-<p>Fast & Secure Free Fire Top Up</p>
+<h1>FREE FIRE</h1>
 
-<a href="topup.html" class="btn">Top Up Now</a>
+<p>Fast & Secure Diamond Top Up</p>
+
+<a href="topup.html" class="topup">
+TOP UP NOW
+</a>
 
 </section>
 
-<footer>
+  <section style="padding:60px 20px;background:#fafafa;">
 
-© 2026 KAVIYA STORE. All Rights Reserved.
+<h2 style="text-align:center;font-size:35px;margin-bottom:40px;">
+Diamond Packages
+</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:1100px;margin:auto;">
+
+<div style="background:#fff;padding:25px;border-radius:20px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.08);">
+<h3>💎 25</h3>
+<p>Rs.100</p>
+<a href="topup.html" class="topup">Buy</a>
+</div>
+
+<div style="background:#fff;padding:25px;border-radius:20px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.08);">
+<h3>💎 50</h3>
+<p>Rs.200</p>
+<a href="topup.html" class="topup">Buy</a>
+</div>
+
+<div style="background:#fff;padding:25px;border-radius:20px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.08);">
+<h3>💎 115</h3>
+<p>Rs.400</p>
+<a href="topup.html" class="topup">Buy</a>
+</div>
+
+<div style="background:#fff;padding:25px;border-radius:20px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.08);">
+<h3>💎 240</h3>
+<p>Rs.800</p>
+<a href="topup.html" class="topup">Buy</a>
+</div>
+
+</div>
+
+</section>
+
+<section style="padding:60px 20px;text-align:center;">
+
+<h2>Why Choose Us?</h2>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:30px;">
+
+<div style="background:#fff;padding:25px;width:250px;border-radius:20px;box-shadow:0 5px 15px rgba(0,0,0,.08);">
+⚡ Instant Top Up
+</div>
+
+<div style="background:#fff;padding:25px;width:250px;border-radius:20px;box-shadow:0 5px 15px rgba(0,0,0,.08);">
+🔒 Secure Payments
+</div>
+
+<div style="background:#fff;padding:25px;width:250px;border-radius:20px;box-shadow:0 5px 15px rgba(0,0,0,.08);">
+📞 24/7 Support
+</div>
+
+</div>
+
+</section>
+
+<footer style="background:#111;color:#fff;padding:40px 20px;text-align:center;">
+
+<h2>KAVIYA STORE</h2>
+
+<p>Fast & Secure Free Fire Top Up</p>
+
+<div style="margin:20px 0;">
+
+<a href="index.html" style="color:white;text-decoration:none;margin:10px;">Home</a>
+
+<a href="topup.html" style="color:white;text-decoration:none;margin:10px;">Top Up</a>
+
+<a href="diamond.html" style="color:white;text-decoration:none;margin:10px;">Diamonds</a>
+
+<a href="contact.html" style="color:white;text-decoration:none;margin:10px;">Contact</a>
+
+</div>
+
+<p>© 2026 KAVIYA STORE. All Rights Reserved.</p>
 
 </footer>
+
+<script>
+
+let slides=document.querySelectorAll(".slide");
+
+let current=0;
+
+function autoSlide(){
+
+slides[current].classList.remove("active");
+
+current++;
+
+if(current>=slides.length){
+
+current=0;
+
+}
+
+slides[current].classList.add("active");
+
+}
+
+setInterval(autoSlide,3000);
+
+</script>
 
 </body>
 </html>
