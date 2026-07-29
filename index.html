@@ -25,7 +25,7 @@ height:75px;
 background:#fff;
 display:flex;
 align-items:center;
-justify-content:space-between;
+justify-content:center; /* login ain kale nisa center kala */
 padding:0 30px;
 box-shadow:0 5px 15px rgba(0,0,0,0.08);
 position:sticky;
@@ -37,6 +37,7 @@ z-index:999;
 font-size:28px;
 font-weight:700;
 color:#ff6b00;
+letter-spacing:1px;
 }
 
 nav ul{
@@ -56,13 +57,10 @@ nav ul li a:hover{
 color:#ff6b00;
 }
 
-.login{
-padding:10px 22px;
-background:#ff6b00;
-color:#fff;
-text-decoration:none;
-border-radius:30px;
-font-weight:600;
+.slider-container{
+max-width:1200px;
+margin:20px auto;
+padding:0 20px;
 }
 
 .slider{
@@ -70,7 +68,8 @@ width:100%;
 height:420px;
 position:relative;
 overflow:hidden;
-margin-top:10px;
+border-radius:25px; /* lassana frame ekak */
+box-shadow:0 15px 40px rgba(0,0,0,0.12); /* lassana shadow */
 }
 
 .slide{
@@ -78,7 +77,7 @@ position:absolute;
 width:100%;
 height:100%;
 opacity:0;
-transition:1s;
+transition:2s ease-in-out; /* lassana fade effect */
 }
 
 .slide.active{
@@ -91,30 +90,10 @@ height:100%;
 object-fit:cover;
 }
 
-/* Slider dots */
-.dots{
-position:absolute;
-bottom:15px;
-width:100%;
-text-align:center;
-}
-.dot{
-height:12px;
-width:12px;
-margin:0 5px;
-background:#ccc;
-border-radius:50%;
-display:inline-block;
-cursor:pointer;
-transition:0.3s;
-}
-.dot.active{
-background:#ff6b00;
-}
-
 .hero{
 padding:60px 20px;
 text-align:center;
+background: linear-gradient(180deg, #ffffff 0%, #fff5ec 100%); /* lassana bg */
 }
 
 .hero img{
@@ -126,6 +105,7 @@ box-shadow:0 10px 30px rgba(0,0,0,0.15);
 .hero h1{
 margin-top:25px;
 font-size:45px;
+color:#ff6b00;
 }
 
 .hero p{
@@ -137,18 +117,20 @@ color:#666;
 .topup{
 display:inline-block;
 margin-top:30px;
-padding:15px 45px;
-background:#ff6b00;
+padding:12px 35px; /* button eka podi kala */
+background:linear-gradient(90deg, #ff6b00, #ff8a00); /* gradient button */
 color:#fff;
 text-decoration:none;
-font-size:20px;
+font-size:17px; /* font eka podi kala */
 border-radius:40px;
-font-weight:bold;
+font-weight:600;
 transition:0.3s;
+box-shadow: 0 5px 20px rgba(255,107,0,0.35); /* lassana shadow */
 }
 
 .topup:hover{
-transform:scale(1.05);
+transform:scale(1.08);
+box-shadow: 0 8px 25px rgba(255,107,0,0.5);
 }
 
 @media(max-width:768px){
@@ -194,9 +176,9 @@ KAVIYA STORE
 <li><a href="contact.html">CONTACT</a></li>
 </ul>
 </nav>
-<a href="login.html" class="login">LOGIN</a>
 </header>
 
+<div class="slider-container">
 <div class="slider">
 <div class="slide active">
 <img src="IMG-20260702-WA0003.jpg" alt="Free Fire Offer 1" loading="lazy">
@@ -207,11 +189,6 @@ KAVIYA STORE
 <div class="slide">
 <img src="IMG-20260729-WA0002.jpg" alt="Free Fire Offer 3" loading="lazy">
 </div>
-
-<div class="dots">
-<span class="dot active" onclick="currentSlide(0)"></span>
-<span class="dot" onclick="currentSlide(1)"></span>
-<span class="dot" onclick="currentSlide(2)"></span>
 </div>
 </div>
 
@@ -252,30 +229,18 @@ KAVIYA STORE
 <script>
 
 let slides=document.querySelectorAll(".slide");
-let dots=document.querySelectorAll(".dot");
 let current=0;
 
-function showSlide(index){
-slides.forEach(slide => slide.classList.remove("active"));
-dots.forEach(dot => dot.classList.remove("active"));
-slides[index].classList.add("active");
-dots[index].classList.add("active");
-current=index;
-}
-
-function currentSlide(index){
-showSlide(index);
-}
-
 function autoSlide(){
+slides[current].classList.remove("active");
 current++;
 if(current>=slides.length){
 current=0;
 }
-showSlide(current);
+slides[current].classList.add("active");
 }
 
-setInterval(autoSlide,4000);
+setInterval(autoSlide,4000); /* 4 second walata ekak wenas wenawa */
 
 </script>
 </body>
