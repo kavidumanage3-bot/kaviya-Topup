@@ -8,50 +8,50 @@
 <style>
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#0d1117;color:#fff;}
+body{background:#f5f7fa;color:#222;} /* WHITE BG */
 .container{max-width:650px;margin:0 auto;padding:20px 15px;}
 
 /* STEP 1 - VERIFY BOX */
-.verify-box{background:#161b22;border-radius:20px;padding:20px;margin-bottom:25px;border:1px solid #30363d;}
-.step-title{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;margin-bottom:15px;}
-.step-number{width:28px;height:28px;background:#ff6b00;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;}
+.verify-box{background:#fff;border-radius:20px;padding:20px;margin-bottom:25px;border:1px solid #e0e0e0;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.step-title{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;margin-bottom:15px;color:#222;}
+.step-number{width:28px;height:28px;background:#ff6b00;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;}
 .input-group{display:flex;gap:10px;margin-bottom:12px;}
-#uidInput{flex:1;padding:14px;background:#0d1117;border:2px solid #30363d;border-radius:12px;color:#fff;font-size:15px;outline:none;}
+#uidInput{flex:1;padding:14px;background:#f5f7fa;border:2px solid #e0e0e0;border-radius:12px;color:#222;font-size:15px;outline:none;}
 #uidInput:focus{border-color:#ff6b00;}
-.paste-btn{padding:14px 18px;background:#21262d;border:none;border-radius:12px;color:#fff;font-weight:600;cursor:pointer;}
-.verify-btn{width:100%;padding:14px;background:linear-gradient(90deg, #ff6b00, #ff8a00);border:none;border-radius:12px;color:#fff;font-weight:700;font-size:15px;cursor:pointer;}
-.verify-btn:disabled{background:#444;cursor:not-allowed;}
-.skip-verify{text-align:center;margin-top:10px;font-size:12px;color:#777;}
+.verify-btn{width:100%;padding:14px;background:linear-gradient(90deg, #ff6b00, #ff8a00);border:none;border-radius:12px;color:#fff;font-weight:700;font-size:15px;cursor:pointer;transition:0.3s;}
+.verify-btn:hover{transform:scale(1.02);}
+.verify-btn:disabled{background:#ccc;cursor:not-allowed;}
 
-/* VERIFIED BOX */
-.verified-box{background:#161b22;border:2px solid #3fb950;border-radius:20px;padding:18px;margin-bottom:25px;display:none;}
-.verified-header{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
-.verified-header .tick{width:32px;height:32px;background:#3fb950;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;}
-.player-name{font-size:18px;font-weight:800;color:#3fb950;}
-.player-uid{font-size:13px;color:#aaa;}
-.change-id{margin-top:10px;background:none;border:1px solid #30363d;padding:8px 15px;border-radius:8px;color:#aaa;cursor:pointer;font-size:13px;}
+/* VERIFIED BOX - LASSANA */
+.verified-box{background:#e8f5e9;border:2px solid #3fb950;border-radius:20px;padding:18px;margin-bottom:25px;display:none;}
+.verified-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.verified-header .tick{width:32px;height:32px;background:#3fb950;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;}
+.player-name{font-size:18px;font-weight:800;color:#2e7d32;}
+.player-uid{font-size:13px;color:#555;}
+#ffNameInput{width:100%;padding:12px;background:#fff;border:2px solid #3fb950;border-radius:10px;color:#222;font-size:14px;margin-top:8px;outline:none;}
+.change-id{margin-top:10px;background:#fff;border:1px solid #3fb950;padding:8px 15px;border-radius:8px;color:#2e7d32;cursor:pointer;font-size:13px;font-weight:600;}
 
-/* PACKAGES - 2 COLUMN GRID VIDEO EKE WAGE */
+/* PACKAGES - 2 COLUMN GRID */
 .package-section{margin-bottom:30px;}
-.package-title{font-size:20px;font-weight:700;margin-bottom:18px;color:#fff;border-left:4px solid #ff6b00;padding-left:12px;}
-.grid{display:grid;grid-template-columns: repeat(2, 1fr);gap:12px;}
+.package-title{font-size:20px;font-weight:700;margin-bottom:18px;color:#222;border-left:4px solid #ff6b00;padding-left:12px;}
+.grid{display:grid;grid-template-columns: repeat(2, 1fr);gap:15px;}
 
-.card{background:#161b22;border-radius:18px;padding:12px;border:1px solid #30363d;display:flex;flex-direction:column;align-items:center;text-align:center;transition:0.3s;}
-.card:hover{transform:translateY(-3px);border-color:#ff6b00;}
-.card img{width:100%;height:100px;object-fit:contain;background:#0d1117;border-radius:12px;padding:6px;margin-bottom:10px;}
-.card h3{font-size:12px;font-weight:700;margin-bottom:8px;color:#fff;min-height:32px;}
+.card{background:#fff;border-radius:18px;padding:12px;border:1px solid #e0e0e0;display:flex;flex-direction:column;align-items:center;text-align:center;transition:0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 15px rgba(255,107,0,0.15);border-color:#ff6b00;}
+.card img{width:100%;height:100px;object-fit:contain;background:#f5f7fa;border-radius:12px;padding:6px;margin-bottom:10px;}
+.card h3{font-size:12px;font-weight:700;margin-bottom:8px;color:#333;min-height:32px;}
 .price{font-size:16px;font-weight:800;color:#ff6b00;margin-bottom:10px;}
-.price span{font-size:11px;color:#aaa;font-weight:600;margin-left:2px;}
+.price span{font-size:11px;color:#777;font-weight:600;margin-left:2px;}
 
 /* + - BUTTONS */
 .qty-control{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;}
-.qty-btn{width:30px;height:30px;background:#21262d;border:none;border-radius:8px;color:#fff;font-size:18px;font-weight:700;cursor:pointer;}
-.qty{font-weight:700;font-size:15px;min-width:20px;text-align:center;}
+.qty-btn{width:30px;height:30px;background:#f5f7fa;border:1px solid #ddd;border-radius:8px;color:#222;font-size:18px;font-weight:700;cursor:pointer;}
+.qty{font-weight:700;font-size:15px;min-width:20px;text-align:center;color:#222;}
 
 /* CART BAR */
-.cart-bar{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);background:#161b22;padding:12px 20px;border-radius:50px;display:none;align-items:center;gap:15px;border:2px solid #ff6b00;box-shadow:0 5px 20px rgba(255,107,0,0.3);z-index:999;width:90%;max-width:500px;}
+.cart-bar{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);background:#fff;padding:12px 20px;border-radius:50px;display:none;align-items:center;gap:15px;border:2px solid #ff6b00;box-shadow:0 5px 20px rgba(255,107,0,0.2);z-index:999;width:90%;max-width:500px;}
 .cart-bar.active{display:flex;}
-.cart-info{flex:1;font-size:14px;}
+.cart-info{flex:1;font-size:14px;color:#222;}
 .cart-total{font-weight:800;color:#ff6b00;font-size:16px;}
 .checkout-btn{padding:12px 22px;background:linear-gradient(90deg, #ff6b00, #ff8a00);border:none;border-radius:30px;color:#fff;font-weight:700;cursor:pointer;font-size:14px;}
 
@@ -69,24 +69,23 @@ body{background:#0d1117;color:#fff;}
 <p>Fast & Secure - 1 to 5 Minutes Delivery</p>
 </div>
 
-<!-- STEP 1 - OPTIONAL VERIFY -->
+<!-- STEP 1 - ID VERIFY -->
 <div class="verify-box" id="verifyBox">
-<div class="step-title"><div class="step-number">1</div> Verify Your Player ID <span style="color:#777;font-size:12px;">Optional</span></div>
+<div class="step-title"><div class="step-number">1</div> ID Verify</div>
 <div class="input-group">
 <input type="number" id="uidInput" placeholder="Enter Your Free Fire UID">
-<button class="paste-btn" onclick="pasteUID()">Paste</button>
 </div>
-<button class="verify-btn" id="verifyBtn" onclick="verifyUID()">✓ VERIFY</button>
-<div class="skip-verify">Verify nokarath order karanna puluwan</div>
+<button class="verify-btn" id="verifyBtn" onclick="verifyUID()">✓ VERIFY ID</button>
 </div>
 
 <!-- VERIFIED -->
 <div class="verified-box" id="verifiedBox">
 <div class="verified-header">
 <div class="tick">✓</div>
-<div>
-<div class="player-name" id="playerName">PLAYER NAME</div>
+<div style="flex:1;">
+<div class="player-name">ID Verified</div>
 <div class="player-uid" id="playerUID">UID: 0000</div>
+<input type="text" id="ffNameInput" placeholder="Enter Your Free Fire Name" maxlength="20">
 </div>
 </div>
 <button class="change-id" onclick="changeID()">CHANGE ID</button>
@@ -112,11 +111,6 @@ Items: <span id="cartCount">0</span> | Total: <span class="cart-total" id="cartT
 
 let cart = [];
 let verified = false;
-let currentUID = '';
-let currentName = 'Guest';
-
-// DEMO NAMES - API nathi nisa random
-const demoNames = ["FREENIX", "KAVIYA", "PROPLAYER", "DARK", "LEGEND", "NINJA", "SNIPER", "BOSS"];
 
 const packagesData = [
   {
@@ -173,14 +167,9 @@ window.onload = function(){
 loadPackages();
 }
 
-function pasteUID(){
-navigator.clipboard.readText().then(text => {
-document.getElementById('uidInput').value = text;
-});
-}
-
 function verifyUID(){
 let uid = document.getElementById('uidInput').value;
+let ffName = document.getElementById('ffNameInput').value;
 if(uid.length < 8){
 alert('Please enter valid UID');
 return;
@@ -190,27 +179,22 @@ document.getElementById('verifyBtn').innerText = 'VERIFYING...';
 document.getElementById('verifyBtn').disabled = true;
 
 setTimeout(() => {
-let randomName = demoNames[Math.floor(Math.random() * demoNames.length)];
-currentUID = uid;
-currentName = randomName;
-
-document.getElementById('playerName').innerText = randomName;
 document.getElementById('playerUID').innerText = 'UID: ' + uid;
 
 document.getElementById('verifyBox').style.display = 'none';
 document.getElementById('verifiedBox').style.display = 'block';
 verified = true;
-}, 1200);
+}, 800);
 }
 
 function changeID(){
 document.getElementById('verifyBox').style.display = 'block';
 document.getElementById('verifiedBox').style.display = 'none';
-document.getElementById('verifyBtn').innerText = '✓ VERIFY';
+document.getElementById('verifyBtn').innerText = '✓ VERIFY ID';
 document.getElementById('verifyBtn').disabled = false;
+document.getElementById('uidInput').value = '';
+document.getElementById('ffNameInput').value = '';
 verified = false;
-currentUID = '';
-currentName = 'Guest';
 }
 
 function loadPackages(){
@@ -281,13 +265,22 @@ if(cart.length === 0){
 alert('Please select at least 1 item');
 return;
 }
-// UID na nam "Guest" widihata save wenawa
-let uidToSave = verified ? currentUID : document.getElementById('uidInput').value || 'Not Verified';
-let nameToSave = verified ? currentName : 'Guest';
+if(!verified){
+alert('Please verify your ID first!'); // MEKA THAMAI WADAGATH DE
+return;
+}
+
+let uid = document.getElementById('uidInput').value;
+let ffName = document.getElementById('ffNameInput').value;
+
+if(ffName.trim() === ''){
+alert('Please enter your Free Fire Name');
+return;
+}
 
 localStorage.setItem('cart', JSON.stringify(cart));
-localStorage.setItem('uid', uidToSave);
-localStorage.setItem('playerName', nameToSave);
+localStorage.setItem('uid', uid);
+localStorage.setItem('playerName', ffName);
 window.location.href = 'checkout.html';
 }
 
