@@ -7,140 +7,53 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#ffffff;color:#222;}
+header{width:100%;height:75px;background:#fff;display:flex;align-items:center;justify-content:center;padding:0 30px;box-shadow:0 5px 15px rgba(0,0,0,0.08);position:sticky;top:0;z-index:999;}
+.logo{font-size:28px;font-weight:700;color:#ff6b00;letter-spacing:1px;}
+nav ul{display:flex;list-style:none;gap:25px;}
+nav ul li a{text-decoration:none;color:#222;font-weight:600;transition:0.3s;}
+nav ul li a:hover{color:#ff6b00;}
+.slider-container{max-width:1200px;margin:20px auto;padding:0 20px;}
+.slider{width:100%;height:420px;position:relative;overflow:hidden;border-radius:25px;box-shadow:0 15px 40px rgba(0,0,0,0.12);}
+.slide{position:absolute;width:100%;height:100%;opacity:0;transition:2s ease-in-out;}
+.slide.active{opacity:1;}
+.slide img{width:100%;height:100%;object-fit:cover;}
+.hero{padding:60px 20px;text-align:center;background: linear-gradient(180deg, #ffffff 0%, #fff5ec 100%);}
+.hero img{width:280px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.15);}
+.hero h1{margin-top:25px;font-size:45px;color:#ff6b00;font-weight:800;}
+.hero p{margin-top:10px;font-size:18px;color:#666;}
+.topup{display:inline-block;margin-top:30px;padding:12px 35px;background:linear-gradient(90deg, #ff6b00, #ff8a00);color:#fff;text-decoration:none;font-size:17px;border-radius:40px;font-weight:600;transition:0.3s;box-shadow: 0 5px 20px rgba(255,107,0,0.35);}
+.topup:hover{transform:scale(1.08);box-shadow: 0 8px 25px rgba(255,107,0,0.5);}
 
-body{
-background:#ffffff;
-color:#222;
-}
-
-header{
-width:100%;
-height:75px;
-background:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:0 30px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-position:sticky;
-top:0;
-z-index:999;
-}
-
-.logo{
-font-size:28px;
-font-weight:700;
-color:#ff6b00;
-letter-spacing:1px;
-}
-
-nav ul{
-display:flex;
-list-style:none;
-gap:25px;
-}
-
-nav ul li a{
-text-decoration:none;
-color:#222;
-font-weight:600;
-transition:0.3s;
-}
-
-nav ul li a:hover{
-color:#ff6b00;
-}
-
-.slider-container{
-max-width:1200px;
-margin:20px auto;
-padding:0 20px;
-}
-
-.slider{
-width:100%;
-height:420px;
-position:relative;
-overflow:hidden;
-border-radius:25px;
-box-shadow:0 15px 40px rgba(0,0,0,0.12);
-}
-
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-opacity:0;
-transition:2s ease-in-out;
-}
-
-.slide.active{
-opacity:1;
-}
-
-.slide img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.hero{
-padding:60px 20px;
-text-align:center;
-background: linear-gradient(180deg, #ffffff 0%, #fff5ec 100%);
-}
-
-.hero img{
-width:280px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-.hero h1{
-margin-top:25px;
-font-size:45px;
-color:#ff6b00;
-font-weight:800;
-}
-
-.hero p{
-margin-top:10px;
-font-size:18px;
-color:#666;
-}
-
-.topup{
-display:inline-block;
-margin-top:30px;
-padding:12px 35px;
-background:linear-gradient(90deg, #ff6b00, #ff8a00);
-color:#fff;
-text-decoration:none;
-font-size:17px;
-border-radius:40px;
-font-weight:600;
-transition:0.3s;
-box-shadow: 0 5px 20px rgba(255,107,0,0.35);
-}
-
-.topup:hover{
-transform:scale(1.08);
-box-shadow: 0 8px 25px rgba(255,107,0,0.5);
-}
-
-@media(max-width:768px){
-header{flex-direction:column;height:auto;padding:15px;}
-nav ul{flex-wrap:wrap;justify-content:center;margin:15px 0;}
-.slider{height:220px;}
-.hero img{width:90%;}
-.hero h1{font-size:32px;}
-}
+/* 🔥 FOOTER CSS - MEKA ADD KALA */
+.custom-footer{background:#0a0a0a; color:#ccc; padding:50px 15px 20px; text-align:center; font-family:'Poppins',sans-serif; margin-top:60px;}
+.footer-container{display:flex; flex-wrap:wrap; justify-content:space-around; text-align:left; max-width:1200px; margin:0 auto; gap:30px;}
+.footer-section{width:30%; min-width:250px; margin-bottom:20px;}
+.footer-section h2{color:#fff; font-size:22px; margin-bottom:15px;}
+.footer-section p{line-height:1.6;}
+.footer-section ul{list-style:none; padding:0;}
+.footer-section ul li{margin:10px 0;}
+.footer-section ul li a{color:#aaa; text-decoration:none; transition:0.3s;}
+.footer-section ul li a:hover{color:#ff6b00;}
+.whatsapp-btn{display:inline-block; margin-top:10px; padding:12px 20px; background:#25D366; color:white; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s;}
+.whatsapp-btn:hover{background:#1ebe5b;}
+.trust-box{margin:30px auto; padding:10px 20px; background:#111; border:1px solid #333; border-radius:50px; width:fit-content; font-weight:600;}
+.social-box{background:#111; padding:25px; border-radius:20px; margin:30px auto; max-width:600px;}
+.social-box h2{color:#fff; margin-bottom:15px;}
+.social-grid{display:flex; justify-content:center; gap:15px; overflow-x:auto; padding-bottom:10px;}
+.social-item{display:flex; flex-direction:column; align-items:center; min-width:70px;}
+.social-card img{width:50px; height:50px; border-radius:12px; object-fit:cover; margin-bottom:5px; transition:0.3s;}
+.social-card img:hover{transform:scale(1.1);}
+.social-item span{font-size:12px; color:#ccc;}
+.contact-links{margin-top:20px;}
+.call-btn,.chat-btn{display:inline-block; margin:5px; padding:12px 20px; border-radius:50px; text-decoration:none; color:#fff; font-weight:600; transition:0.3s;}
+.call-btn{background:#007bff;}.call-btn:hover{background:#0056b3;}
+.chat-btn{background:#25D366;}.chat-btn:hover{background:#1ebe5b;}
+.footer-bottom{border-top:1px solid #222; margin-top:30px; padding-top:20px; font-size:14px;}
+.float-btn{position:fixed; bottom:20px; right:20px; background:linear-gradient(45deg,#00c6ff,#0072ff); color:white; font-size:24px; width:55px; height:55px; display:flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none; box-shadow:0 5px 20px rgba(0,102,255,0.5); z-index:999; transition:0.3s;}
+.float-btn:hover{transform:scale(1.1);}
+@media(max-width:768px){header{flex-direction:column;height:auto;padding:15px;}nav ul{flex-wrap:wrap;justify-content:center;margin:15px 0;}.slider{height:220px;}.hero img{width:90%;}.hero h1{font-size:32px;}.footer-container{flex-direction:column; text-align:center;}.footer-section{width:100%;}}
 
 </style>
 </head>
@@ -181,8 +94,8 @@ nav ul{flex-wrap:wrap;justify-content:center;margin:15px 0;}
 </div>
 </section>
 
-<!-- 🔥 ALUTH FOOTER EKA MEHATA INCLUDE WENNE -->
-<!-- footer.html eke content eka mehema -->
+<!-- 🔥 FOOTER EKA LOAD WENNA DIV EKA -->
+<div id="footer"></div>
 
 <script>
 let slides=document.querySelectorAll(".slide");
@@ -194,6 +107,14 @@ if(current>=slides.length){current=0;}
 slides[current].classList.add("active");
 }
 setInterval(autoSlide,4000);
+
+// 🔥 FOOTER.HTML LOAD KARANNA
+fetch('footer.html')
+.then(response => response.text())
+.then(data => {
+    document.getElementById('footer').innerHTML = data;
+  }).catch(err => console.log('Footer load error:', err));
+
 </script>
 
 </body>
