@@ -28,23 +28,24 @@ header{
   margin-bottom:8px;
 }
 .logo-img{
-  width:28px; /* podi size */
-  height:28px;
+  width:30px; /* danukaya perfect size */
+  height:30px;
   border-radius:8px;
   border:1px solid #ff6b00;
   object-fit:cover;
+  background:#fff;
 }
 .logo-texts{
   display:flex;
   flex-direction:column;
 }
 .welcome-text{
-  font-size:11px; /* podi size */
+  font-size:11px;
   color:#777;
   font-weight:500;
 }
 .store-name{
-  font-size:20px; /* danukaya wage podi size */
+  font-size:20px;
   font-weight:800;
   color:#ff6b00;
   letter-spacing:0.5px;
@@ -68,7 +69,7 @@ nav ul li a{
   border-radius:8px;
 }
 nav ul li a:hover, nav ul li a.active{
-  color:#ff6b00; 
+  color:#ff6b00;
   background:#fff5ec;
 }
 
@@ -118,7 +119,8 @@ nav ul li a:hover, nav ul li a.active{
 <body>
 <header>
   <div class="header-top">
-    <img src="IMG_20260325_191238_159.jpg" alt="Kaviya Logo" class="IMG_20260325_191238_159.jpg">
+    <!-- MEKA FIX KALA -->
+    <img src="logo.png" alt="Kaviya Logo" class="logo-img">
     <div class="logo-texts">
       <div class="welcome-text">WELCOME TO</div>
       <div class="store-name">KAVIYA STORE</div>
@@ -128,8 +130,8 @@ nav ul li a:hover, nav ul li a.active{
     <ul>
       <li><a href="index.html" class="active">HOME</a></li>
       <li><a href="topup.html">TOP UP</a></li>
-      <li><a href="diamond.html">DIAMONDS</a></li> <!-- FIX -->
-      <li><a href="contact.html">CONTACT</a></li> <!-- FIX -->
+      <li><a href="diamond.html">DIAMONDS</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
     </ul>
   </nav>
 </header>
@@ -180,9 +182,8 @@ fetch('footer.html')
     document.getElementById('footer').innerHTML = data;
   }).catch(err => console.log('Footer load error:', err));
 
-
 // 🔥 TELEGRAM ALERT CODE
-const BOT_TOKEN = "8802199693:AAFckmH6VXvB9xoHFPFdlKzCOBPxE-7n7To"; 
+const BOT_TOKEN = "8802199693:AAFckmH6VXvB9xoHFPFdlKzCOBPxE-7n7To";
 const CHAT_ID = "8324590734";
 
 function sendTelegramAlert(message) {
