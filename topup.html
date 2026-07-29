@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KAVIYA STORE | Top Up</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 
 *{
@@ -15,54 +15,57 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f8f9fa;
+background:#f5f7fa;
 color:#222;
 }
 
 .container{
-max-width:1200px;
+max-width:600px;
 margin:0 auto;
-padding:30px 20px;
+padding:25px 15px;
 }
 
 .page-title{
 text-align:center;
-margin-bottom:40px;
-padding-top:20px;
+margin-bottom:30px;
+padding-top:10px;
 }
 .page-title h1{
-font-size:36px;
+font-size:32px;
+font-weight:800;
 color:#ff6b00;
-margin-bottom:10px;
+line-height:1.2;
 }
 .page-title p{
-color:#666;
+color:#777;
+font-size:14px;
+margin-top:8px;
 }
 
 .package-section{
-margin-bottom:60px;
+margin-bottom:40px;
 }
 
 .package-title{
-font-size:24px;
+font-size:20px;
 font-weight:700;
-margin-bottom:20px;
-color:#333;
+margin-bottom:18px;
+color:#222;
 border-left:4px solid #ff6b00;
-padding-left:15px;
+padding-left:12px;
 }
 
 .grid{
-display:grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap:20px;
+display:flex;
+flex-direction:column;
+gap:15px;
 }
 
 .card{
 background:#fff;
 border-radius:20px;
-padding:20px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
+padding:20px 15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.06);
 transition:0.3s;
 display:flex;
 flex-direction:column;
@@ -71,51 +74,58 @@ text-align:center;
 }
 
 .card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 30px rgba(255,107,0,0.15);
+transform:translateY(-3px);
+box-shadow:0 8px 25px rgba(255,107,0,0.12);
 }
 
 .card img{
-width:90px;
-height:90px;
+width:100px;
+height:100px;
 object-fit:cover;
-margin-bottom:15px;
-border-radius:15px;
+margin-bottom:12px;
+border-radius:20px; /* lassana round corner */
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 .card h3{
-font-size:16px;
-font-weight:600;
-margin-bottom:8px;
+font-size:15px;
+font-weight:700;
+margin-bottom:10px;
 color:#333;
-min-height:40px;
+text-transform:uppercase;
+letter-spacing:0.3px;
 }
 
 .price{
-font-size:20px;
-font-weight:700;
+font-size:22px;
+font-weight:800;
 color:#ff6b00;
 margin-bottom:15px;
 }
 .price span{
-font-size:14px;
-color:#666;
-font-weight:500;
+font-size:13px;
+color:#777;
+font-weight:600;
+margin-left:3px;
 }
 
 .buy-btn{
-padding:10px 25px;
+padding:14px 25px;
 background:linear-gradient(90deg, #ff6b00, #ff8a00);
 color:#fff;
 border:none;
-border-radius:30px;
-font-weight:600;
+border-radius:50px; /* full round button */
+font-weight:700;
+font-size:15px;
 cursor:pointer;
 transition:0.3s;
 width:100%;
+letter-spacing:0.5px;
+box-shadow:0 4px 15px rgba(255,107,0,0.3);
 }
 .buy-btn:hover{
-transform:scale(1.05);
+transform:scale(1.03);
+box-shadow:0 6px 20px rgba(255,107,0,0.4);
 }
 
 .modal{
@@ -125,7 +135,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.7);
 z-index:9999;
 justify-content:center;
 align-items:center;
@@ -135,33 +145,38 @@ display:flex;
 }
 .modal-content{
 background:#fff;
-padding:30px;
+padding:25px;
 border-radius:20px;
 width:90%;
-max-width:400px;
+max-width:380px;
 text-align:center;
 }
 .modal-content h2{
-margin-bottom:15px;
+margin-bottom:10px;
 color:#ff6b00;
-font-size:18px;
+font-size:17px;
 }
 .modal-content input{
 width:100%;
 padding:12px;
-border:2px solid #ddd;
-border-radius:10px;
+border:2px solid #eee;
+border-radius:12px;
 margin:15px 0;
-font-size:16px;
+font-size:15px;
+outline:none;
+}
+.modal-content input:focus{
+border-color:#ff6b00;
 }
 .modal-content button{
-padding:12px 30px;
-background:#ff6b00;
+padding:14px 30px;
+background:linear-gradient(90deg, #ff6b00, #ff8a00);
 color:#fff;
 border:none;
-border-radius:10px;
-font-weight:600;
+border-radius:12px;
+font-weight:700;
 cursor:pointer;
+width:100%;
 }
 .close{
 float:right;
@@ -171,7 +186,7 @@ color:#999;
 }
 
 footer{
-background:#111;color:#fff;padding:40px 20px;text-align:center;margin-top:60px;
+background:#111;color:#fff;padding:30px 20px;text-align:center;margin-top:40px;font-size:13px;
 }
 
 </style>
@@ -180,7 +195,7 @@ background:#111;color:#fff;padding:40px 20px;text-align:center;margin-top:60px;
 
 <div class="container">
 <div class="page-title">
-<h1>Free Fire Diamond Top Up</h1>
+<h1>Free Fire Diamond<br>Top Up</h1>
 <p>Fast & Secure - 1 to 5 Minutes Delivery</p>
 </div>
 
@@ -201,51 +216,50 @@ background:#111;color:#fff;padding:40px 20px;text-align:center;margin-top:60px;
 
 <footer>
 <h2>KAVIYA STORE</h2>
-<p>Fast & Secure Free Fire Top Up</p>
 <p>© 2026 KAVIYA STORE. All Rights Reserved.</p>
 </footer>
 
 <script>
 
-// Dan me wage [name, price, photo] widiyata danna
+// Dan [name, price, photo] widiyata
 const packagesData = [
   {
     title:"MEMBERSHIP",
     items:[
-      ["WEEKLY LITE MEMBERSHIP",130,"IMG-20260729-WA0003.jpg"],
-      ["WEEKLY MEMBERSHIP",520,"oss-a4dc82551f55d986ea4bab3e8521c172.png"],
-      ["MONTHLY MEMBERSHIP",2560,"membership3.jpg"],
-      ["VIP MEMBERSHIP",3080,"vip1.jpg"],
-      ["VIP PLUS MEMBERSHIP",3210,"vip2.jpg"],
-      ["S VIP MEMBERSHIP",4640,"svip1.jpg"],
-      ["S VIP PLUS MEMBERSHIP",5160,"svip2.jpg"]
+      ["WEEKLY LITE MEMBERSHIP",130,"membership_lite.jpg"],
+      ["WEEKLY MEMBERSHIP",520,"membership_weekly.jpg"],
+      ["MONTHLY MEMBERSHIP",2560,"membership_monthly.jpg"],
+      ["VIP MEMBERSHIP",3080,"vip.jpg"],
+      ["VIP PLUS MEMBERSHIP",3210,"vip_plus.jpg"],
+      ["S VIP MEMBERSHIP",4640,"svip.jpg"],
+      ["S VIP PLUS MEMBERSHIP",5160,"svip_plus.jpg"]
     ]
   },
   {
     title:"DIAMOND PACK",
     items:[
-      ["25 💎",100,"diamond25.jpg"],
-      ["50 💎",200,"diamond50.jpg"],
-      ["100 💎",400,"diamond100.jpg"],
-      ["310 💎",950,"diamond310.jpg"],
-      ["520 💎",1580,"diamond520.jpg"],
-      ["1060 💎",3020,"diamond1060.jpg"],
-      ["2180 💎",6020,"diamond2180.jpg"],
-      ["5600 💎",14700,"diamond5600.jpg"],
-      ["11500 💎",31000,"diamond11500.jpg"],
-      ["23000 💎",61000,"diamond23000.jpg"],
-      ["46000 💎",124020,"diamond46000.jpg"]
+      ["25 💎",100,"d25.jpg"],
+      ["50 💎",200,"d50.jpg"],
+      ["100 💎",400,"d100.jpg"],
+      ["310 💎",950,"d310.jpg"],
+      ["520 💎",1580,"d520.jpg"],
+      ["1060 💎",3020,"d1060.jpg"],
+      ["2180 💎",6020,"d2180.jpg"],
+      ["5600 💎",14700,"d5600.jpg"],
+      ["11500 💎",31000,"d11500.jpg"],
+      ["23000 💎",61000,"d23000.jpg"],
+      ["46000 💎",124020,"d46000.jpg"]
     ]
   },
   {
     title:"LEVEL UP PASS PACKAGE",
     items:[
-      ["LEVEL 6",180,"level6.jpg"],
-      ["LEVEL 10",300,"level10.jpg"],
-      ["LEVEL 15",300,"level15.jpg"],
-      ["LEVEL 20",300,"level20.jpg"],
-      ["LEVEL 25",300,"level25.jpg"],
-      ["LEVEL 30",450,"level30.jpg"]
+      ["LEVEL 6",180,"l6.jpg"],
+      ["LEVEL 10",300,"l10.jpg"],
+      ["LEVEL 15",300,"l15.jpg"],
+      ["LEVEL 20",300,"l20.jpg"],
+      ["LEVEL 25",300,"l25.jpg"],
+      ["LEVEL 30",450,"l30.jpg"]
     ]
   },
   {
@@ -280,7 +294,6 @@ packagesData.forEach(pkg => {
   packagesDiv.innerHTML += html;
 });
 
-// Modal functions
 function openModal(name, price){
   document.getElementById('modalTitle').innerText = name;
   document.getElementById('modalPrice').innerText = 'Price: Rs. ' + price + ' LKR';
