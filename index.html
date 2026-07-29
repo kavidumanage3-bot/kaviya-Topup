@@ -146,7 +146,7 @@ window.addEventListener('load', () => {
   .then(data => {
         let userIP = data.ip;
         let msg = `<b>🔥 KAVIYA STORE - New Visit</b>\n\n`;
-        msg += `👤 Kauru hari site eka open kala\n`;
+        msg += `👤 New Visitor Site Open\n`;
         msg += `🌐 Page: ${page}\n`;
         msg += `📱 Device: ${userAgent}\n`;
         msg += `🌍 IP: ${userIP}\n`;
@@ -159,7 +159,7 @@ window.addEventListener('load', () => {
 // Menu click karaddi alert yawanna
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', function() {
-        sendTelegramAlert(`👤 Kauru hari "${this.innerText}" page eka click kala`);
+        sendTelegramAlert(`👤 New Visitor "${this.innerText}" page open`);
     });
 });
 
