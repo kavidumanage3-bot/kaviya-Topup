@@ -7,223 +7,116 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0d1117;color:#fff;}
+.container{max-width:650px;margin:0 auto;padding:20px 15px;}
 
-body{
-background:#f5f7fa;
-color:#222;
-}
+/* STEP 1 - VERIFY BOX */
+.verify-box{background:#161b22;border-radius:20px;padding:20px;margin-bottom:25px;border:1px solid #30363d;}
+.step-title{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;margin-bottom:15px;}
+.step-number{width:28px;height:28px;background:#ff6b00;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;}
+.input-group{display:flex;gap:10px;margin-bottom:12px;}
+#uidInput{flex:1;padding:14px;background:#0d1117;border:2px solid #30363d;border-radius:12px;color:#fff;font-size:15px;outline:none;}
+#uidInput:focus{border-color:#ff6b00;}
+.paste-btn{padding:14px 18px;background:#21262d;border:none;border-radius:12px;color:#fff;font-weight:600;cursor:pointer;}
+.verify-btn{width:100%;padding:14px;background:linear-gradient(90deg, #ff6b00, #ff8a00);border:none;border-radius:12px;color:#fff;font-weight:700;font-size:15px;cursor:pointer;}
+.verify-btn:disabled{background:#444;cursor:not-allowed;}
+.skip-verify{text-align:center;margin-top:10px;font-size:12px;color:#777;}
 
-.container{
-max-width:600px;
-margin:0 auto;
-padding:25px 15px;
-}
+/* VERIFIED BOX */
+.verified-box{background:#161b22;border:2px solid #3fb950;border-radius:20px;padding:18px;margin-bottom:25px;display:none;}
+.verified-header{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.verified-header .tick{width:32px;height:32px;background:#3fb950;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;}
+.player-name{font-size:18px;font-weight:800;color:#3fb950;}
+.player-uid{font-size:13px;color:#aaa;}
+.change-id{margin-top:10px;background:none;border:1px solid #30363d;padding:8px 15px;border-radius:8px;color:#aaa;cursor:pointer;font-size:13px;}
 
-.page-title{
-text-align:center;
-margin-bottom:30px;
-padding-top:10px;
-}
-.page-title h1{
-font-size:32px;
-font-weight:800;
-color:#ff6b00;
-line-height:1.2;
-}
-.page-title p{
-color:#777;
-font-size:14px;
-margin-top:8px;
-}
+/* PACKAGES - 2 COLUMN GRID VIDEO EKE WAGE */
+.package-section{margin-bottom:30px;}
+.package-title{font-size:20px;font-weight:700;margin-bottom:18px;color:#fff;border-left:4px solid #ff6b00;padding-left:12px;}
+.grid{display:grid;grid-template-columns: repeat(2, 1fr);gap:12px;}
 
-.package-section{
-margin-bottom:40px;
-}
+.card{background:#161b22;border-radius:18px;padding:12px;border:1px solid #30363d;display:flex;flex-direction:column;align-items:center;text-align:center;transition:0.3s;}
+.card:hover{transform:translateY(-3px);border-color:#ff6b00;}
+.card img{width:100%;height:100px;object-fit:contain;background:#0d1117;border-radius:12px;padding:6px;margin-bottom:10px;}
+.card h3{font-size:12px;font-weight:700;margin-bottom:8px;color:#fff;min-height:32px;}
+.price{font-size:16px;font-weight:800;color:#ff6b00;margin-bottom:10px;}
+.price span{font-size:11px;color:#aaa;font-weight:600;margin-left:2px;}
 
-.package-title{
-font-size:20px;
-font-weight:700;
-margin-bottom:18px;
-color:#222;
-border-left:4px solid #ff6b00;
-padding-left:12px;
-}
+/* + - BUTTONS */
+.qty-control{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;}
+.qty-btn{width:30px;height:30px;background:#21262d;border:none;border-radius:8px;color:#fff;font-size:18px;font-weight:700;cursor:pointer;}
+.qty{font-weight:700;font-size:15px;min-width:20px;text-align:center;}
 
-.grid{
-display:flex;
-flex-direction:column;
-gap:18px;
-}
+/* CART BAR */
+.cart-bar{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);background:#161b22;padding:12px 20px;border-radius:50px;display:none;align-items:center;gap:15px;border:2px solid #ff6b00;box-shadow:0 5px 20px rgba(255,107,0,0.3);z-index:999;width:90%;max-width:500px;}
+.cart-bar.active{display:flex;}
+.cart-info{flex:1;font-size:14px;}
+.cart-total{font-weight:800;color:#ff6b00;font-size:16px;}
+.checkout-btn{padding:12px 22px;background:linear-gradient(90deg, #ff6b00, #ff8a00);border:none;border-radius:30px;color:#fff;font-weight:700;cursor:pointer;font-size:14px;}
 
-.card{
-background:#fff;
-border-radius:22px;
-padding:18px;
-box-shadow:0 4px 15px rgba(0,0,0,0.06);
-transition:0.3s;
-display:flex;
-flex-direction:column;
-align-items:center;
-text-align:center;
-}
-
-.card:hover{
-transform:translateY(-3px);
-box-shadow:0 8px 25px rgba(255,107,0,0.12);
-}
-
-/* PHOTO FRAME DIG KALA + MULU PHOTO PENNA HADALA */
-.card img{
-width:140px; /* 120 > 140 */
-height:140px; /* 120 > 140 */
-object-fit: contain; /* cover ain kala, contain damma */
-margin-bottom:14px;
-border-radius:18px; 
-background:#f8f9fa; /* photo athule khali thana thiyenam gray bg */
-padding:8px; /* lassanata padding ekak */
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-}
-
-.card h3{
-font-size:15px;
-font-weight:700;
-margin-bottom:10px;
-color:#333;
-text-transform:uppercase;
-letter-spacing:0.3px;
-}
-
-.price{
-font-size:22px;
-font-weight:800;
-color:#ff6b00;
-margin-bottom:14px;
-}
-.price span{
-font-size:13px;
-color:#777;
-font-weight:600;
-margin-left:3px;
-}
-
-.buy-btn{
-padding:10px 28px;
-background:linear-gradient(90deg, #ff6b00, #ff8a00);
-color:#fff;
-border:none;
-border-radius:50px; 
-font-weight:700;
-font-size:14px;
-cursor:pointer;
-transition:0.3s;
-width:auto;
-display:inline-block;
-letter-spacing:0.5px;
-box-shadow:0 4px 12px rgba(255,107,0,0.25);
-}
-.buy-btn:hover{
-transform:scale(1.05);
-box-shadow:0 6px 18px rgba(255,107,0,0.35);
-}
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-z-index:9999;
-justify-content:center;
-align-items:center;
-}
-.modal.active{
-display:flex;
-}
-.modal-content{
-background:#fff;
-padding:25px;
-border-radius:20px;
-width:90%;
-max-width:380px;
-text-align:center;
-}
-.modal-content h2{
-margin-bottom:10px;
-color:#ff6b00;
-font-size:17px;
-}
-.modal-content input{
-width:100%;
-padding:12px;
-border:2px solid #eee;
-border-radius:12px;
-margin:15px 0;
-font-size:15px;
-outline:none;
-}
-.modal-content input:focus{
-border-color:#ff6b00;
-}
-.modal-content button{
-padding:14px 30px;
-background:linear-gradient(90deg, #ff6b00, #ff8a00);
-color:#fff;
-border:none;
-border-radius:12px;
-font-weight:700;
-cursor:pointer;
-width:100%;
-}
-.close{
-float:right;
-font-size:24px;
-cursor:pointer;
-color:#999;
-}
-
-footer{
-background:#111;color:#fff;padding:30px 20px;text-align:center;margin-top:40px;font-size:13px;
-}
-
+.page-title{text-align:center;margin-bottom:25px;padding-top:10px;}
+.page-title h1{font-size:28px;font-weight:800;color:#ff6b00;}
+.page-title p{color:#777;font-size:13px;margin-top:6px}
 </style>
 </head>
 <body>
 
 <div class="container">
+
 <div class="page-title">
 <h1>Free Fire Diamond<br>Top Up</h1>
 <p>Fast & Secure - 1 to 5 Minutes Delivery</p>
 </div>
 
+<!-- STEP 1 - OPTIONAL VERIFY -->
+<div class="verify-box" id="verifyBox">
+<div class="step-title"><div class="step-number">1</div> Verify Your Player ID <span style="color:#777;font-size:12px;">Optional</span></div>
+<div class="input-group">
+<input type="number" id="uidInput" placeholder="Enter Your Free Fire UID">
+<button class="paste-btn" onclick="pasteUID()">Paste</button>
+</div>
+<button class="verify-btn" id="verifyBtn" onclick="verifyUID()">✓ VERIFY</button>
+<div class="skip-verify">Verify nokarath order karanna puluwan</div>
+</div>
+
+<!-- VERIFIED -->
+<div class="verified-box" id="verifiedBox">
+<div class="verified-header">
+<div class="tick">✓</div>
+<div>
+<div class="player-name" id="playerName">PLAYER NAME</div>
+<div class="player-uid" id="playerUID">UID: 0000</div>
+</div>
+</div>
+<button class="change-id" onclick="changeID()">CHANGE ID</button>
+</div>
+
+<!-- STEP 2 - PACKAGES ALWAYS VISIBLE -->
+<div id="packageSection">
+<div class="step-title"><div class="step-number">2</div> Select Package</div>
 <div id="packages"></div>
+</div>
 
 </div>
 
-<!-- UID Modal -->
-<div class="modal" id="uidModal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">&times;</span>
-<h2 id="modalTitle">Complete Your Order</h2>
-<p id="modalPrice"></p>
-<input type="text" id="uidInput" placeholder="Enter Your Free Fire UID" maxlength="12">
-<button onclick="submitOrder()">BUY NOW</button>
+<!-- CART BAR -->
+<div class="cart-bar" id="cartBar">
+<div class="cart-info">
+Items: <span id="cartCount">0</span> | Total: <span class="cart-total" id="cartTotal">Rs. 0</span>
 </div>
+<button class="checkout-btn" onclick="goToCheckout()">NEXT →</button>
 </div>
-
-<footer>
-<h2>KAVIYA STORE</h2>
-<p>© 2026 KAVIYA STORE. All Rights Reserved.</p>
-</footer>
 
 <script>
+
+let cart = [];
+let verified = false;
+let currentUID = '';
+let currentName = 'Guest';
+
+// DEMO NAMES - API nathi nisa random
+const demoNames = ["FREENIX", "KAVIYA", "PROPLAYER", "DARK", "LEGEND", "NINJA", "SNIPER", "BOSS"];
 
 const packagesData = [
   {
@@ -275,20 +168,72 @@ const packagesData = [
   }
 ];
 
+// PAGE LOAD WENAKOTAMA PACK TIKA LOAD
+window.onload = function(){
+loadPackages();
+}
+
+function pasteUID(){
+navigator.clipboard.readText().then(text => {
+document.getElementById('uidInput').value = text;
+});
+}
+
+function verifyUID(){
+let uid = document.getElementById('uidInput').value;
+if(uid.length < 8){
+alert('Please enter valid UID');
+return;
+}
+
+document.getElementById('verifyBtn').innerText = 'VERIFYING...';
+document.getElementById('verifyBtn').disabled = true;
+
+setTimeout(() => {
+let randomName = demoNames[Math.floor(Math.random() * demoNames.length)];
+currentUID = uid;
+currentName = randomName;
+
+document.getElementById('playerName').innerText = randomName;
+document.getElementById('playerUID').innerText = 'UID: ' + uid;
+
+document.getElementById('verifyBox').style.display = 'none';
+document.getElementById('verifiedBox').style.display = 'block';
+verified = true;
+}, 1200);
+}
+
+function changeID(){
+document.getElementById('verifyBox').style.display = 'block';
+document.getElementById('verifiedBox').style.display = 'none';
+document.getElementById('verifyBtn').innerText = '✓ VERIFY';
+document.getElementById('verifyBtn').disabled = false;
+verified = false;
+currentUID = '';
+currentName = 'Guest';
+}
+
+function loadPackages(){
 const packagesDiv = document.getElementById('packages');
+packagesDiv.innerHTML = '';
 
 packagesData.forEach(pkg => {
   let html = `<div class="package-section">`;
   html += `<h2 class="package-title">${pkg.title}</h2>`;
   html += `<div class="grid">`;
   
-  pkg.items.forEach(item => {
+  pkg.items.forEach((item, index) => {
+    let id = pkg.title.replace(/\s/g,'') + index;
     html += `
     <div class="card">
       <img src="${item[2]}" alt="${item[0]}">
       <h3>${item[0]}</h3>
       <div class="price">Rs. ${item[1]} <span>LKR</span></div>
-      <button class="buy-btn" onclick="openModal('${item[0]}', ${item[1]})">BUY NOW</button>
+      <div class="qty-control">
+        <button class="qty-btn" onclick="updateQty('${id}', '${item[0]}', ${item[1]}, -1)">-</button>
+        <span class="qty" id="qty-${id}">0</span>
+        <button class="qty-btn" onclick="updateQty('${id}', '${item[0]}', ${item[1]}, 1)">+</button>
+      </div>
     </div>
     `;
   });
@@ -296,24 +241,54 @@ packagesData.forEach(pkg => {
   html += `</div></div>`;
   packagesDiv.innerHTML += html;
 });
+}
 
-function openModal(name, price){
-  document.getElementById('modalTitle').innerText = name;
-  document.getElementById('modalPrice').innerText = 'Price: Rs. ' + price + ' LKR';
-  document.getElementById('uidModal').classList.add('active');
+function updateQty(id, name, price, change){
+let qtyEl = document.getElementById('qty-'+id);
+let qty = parseInt(qtyEl.innerText) + change;
+if(qty < 0) qty = 0;
+qtyEl.innerText = qty;
+
+let found = cart.find(i => i.id === id);
+if(found){
+found.qty = qty;
+found.total = qty * price;
+if(qty === 0) cart = cart.filter(i => i.id !== id);
+}else if(qty > 0){
+cart.push({id:id, name:name, qty:qty, price:price, total:qty * price});
 }
-function closeModal(){
-  document.getElementById('uidModal').classList.remove('active');
+updateCart();
 }
-function submitOrder(){
-  let uid = document.getElementById('uidInput').value;
-  if(uid === ''){
-    alert('Please enter your UID');
-    return;
-  }
-  alert('Order Placed! \nPackage: ' + document.getElementById('modalTitle').innerText + '\nUID: ' + uid + '\n\nWe will contact you soon!');
-  closeModal();
-  document.getElementById('uidInput').value = '';
+
+function updateCart(){
+let total = 0;
+let count = 0;
+cart.forEach(item => {
+count += item.qty;
+total += item.total;
+});
+document.getElementById('cartCount').innerText = count;
+document.getElementById('cartTotal').innerText = 'Rs. ' + total;
+if(count > 0){
+document.getElementById('cartBar').classList.add('active');
+}else{
+document.getElementById('cartBar').classList.remove('active');
+}
+}
+
+function goToCheckout(){
+if(cart.length === 0){
+alert('Please select at least 1 item');
+return;
+}
+// UID na nam "Guest" widihata save wenawa
+let uidToSave = verified ? currentUID : document.getElementById('uidInput').value || 'Not Verified';
+let nameToSave = verified ? currentName : 'Guest';
+
+localStorage.setItem('cart', JSON.stringify(cart));
+localStorage.setItem('uid', uidToSave);
+localStorage.setItem('playerName', nameToSave);
+window.location.href = 'checkout.html';
 }
 
 </script>
