@@ -58,13 +58,13 @@ padding-left:12px;
 .grid{
 display:flex;
 flex-direction:column;
-gap:15px;
+gap:18px;
 }
 
 .card{
 background:#fff;
-border-radius:20px;
-padding:20px 15px;
+border-radius:22px;
+padding:18px;
 box-shadow:0 4px 15px rgba(0,0,0,0.06);
 transition:0.3s;
 display:flex;
@@ -78,13 +78,15 @@ transform:translateY(-3px);
 box-shadow:0 8px 25px rgba(255,107,0,0.12);
 }
 
+/* PHOTO FRAME PODDAK LOKU KALA */
 .card img{
-width:100px;
-height:100px;
+width:120px; /* 100 > 120 */
+height:120px; /* 100 > 120 */
 object-fit:cover;
-margin-bottom:12px;
-border-radius:20px; /* lassana round corner */
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+margin-bottom:14px;
+border-radius:22px; /* lassana round */
+box-shadow:0 5px 15px rgba(0,0,0,0.12);
+border:3px solid #fff;
 }
 
 .card h3{
@@ -100,7 +102,7 @@ letter-spacing:0.3px;
 font-size:22px;
 font-weight:800;
 color:#ff6b00;
-margin-bottom:15px;
+margin-bottom:14px;
 }
 .price span{
 font-size:13px;
@@ -109,23 +111,25 @@ font-weight:600;
 margin-left:3px;
 }
 
+/* BUTTON EKA PODDI KALA */
 .buy-btn{
-padding:14px 25px;
+padding:10px 28px; /* 14px > 10px kiyala podi kala */
 background:linear-gradient(90deg, #ff6b00, #ff8a00);
 color:#fff;
 border:none;
-border-radius:50px; /* full round button */
+border-radius:50px; 
 font-weight:700;
-font-size:15px;
+font-size:14px; /* 15px > 14px */
 cursor:pointer;
 transition:0.3s;
-width:100%;
+width:auto; /* full width ain kala */
+display:inline-block;
 letter-spacing:0.5px;
-box-shadow:0 4px 15px rgba(255,107,0,0.3);
+box-shadow:0 4px 12px rgba(255,107,0,0.25);
 }
 .buy-btn:hover{
-transform:scale(1.03);
-box-shadow:0 6px 20px rgba(255,107,0,0.4);
+transform:scale(1.05);
+box-shadow:0 6px 18px rgba(255,107,0,0.35);
 }
 
 .modal{
@@ -221,7 +225,6 @@ background:#111;color:#fff;padding:30px 20px;text-align:center;margin-top:40px;f
 
 <script>
 
-// Dan [name, price, photo] widiyata
 const packagesData = [
   {
     title:"MEMBERSHIP",
