@@ -8,8 +8,22 @@
 <style>
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#f5f7fa;color:#222;} /* WHITE BG */
+body{background:#f5f7fa;color:#222;}
 .container{max-width:650px;margin:0 auto;padding:20px 15px;}
+
+/* 🔥 NEW OFFER BOX */
+.offer-box{background:linear-gradient(135deg, #ff6b00, #ff8a00);border-radius:20px;padding:20px;margin-bottom:25px;color:#fff;box-shadow:0 8px 25px rgba(255,107,0,0.3);border:2px solid #fff;position:relative;overflow:hidden;}
+.offer-box::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,0.1),transparent);animation:shine 3s infinite;}
+@keyframes shine{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg);}100%{transform:translateX(100%) translateY(100%) rotate(45deg);}}
+.offer-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;position:relative;z-index:2;}
+.offer-header .fire{font-size:24px;animation:shake 1s infinite;}
+@keyframes shake{0%,100%{transform:rotate(0);}25%{transform:rotate(-10deg);}75%{transform:rotate(10deg);}}
+.offer-title{font-size:18px;font-weight:800;}
+.offer-desc{font-size:13px;opacity:0.95;margin-bottom:15px;position:relative;z-index:2;}
+.countdown{display:flex;justify-content:space-between;gap:8px;position:relative;z-index:2;}
+.time-box{background:rgba(255,255,255,0.25);border-radius:12px;padding:12px 5px;text-align:center;flex:1;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.3);}
+.time-box .num{font-size:24px;font-weight:800;display:block;}
+.time-box .txt{font-size:10px;opacity:0.95;}
 
 /* STEP 1 - VERIFY BOX */
 .verify-box{background:#fff;border-radius:20px;padding:20px;margin-bottom:25px;border:1px solid #e0e0e0;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
@@ -22,7 +36,7 @@ body{background:#f5f7fa;color:#222;} /* WHITE BG */
 .verify-btn:hover{transform:scale(1.02);}
 .verify-btn:disabled{background:#ccc;cursor:not-allowed;}
 
-/* VERIFIED BOX - LASSANA */
+/* VERIFIED BOX */
 .verified-box{background:#e8f5e9;border:2px solid #3fb950;border-radius:20px;padding:18px;margin-bottom:25px;display:none;}
 .verified-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
 .verified-header .tick{width:32px;height:32px;background:#3fb950;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;}
@@ -69,6 +83,20 @@ body{background:#f5f7fa;color:#222;} /* WHITE BG */
 <p>Fast & Secure - 1 to 5 Minutes Delivery</p>
 </div>
 
+<!-- 🔥 FLASH SALE OFFER BOX -->
+<div class="offer-box">
+  <div class="offer-header">
+    <div class="fire">🔥</div>
+    <div class="offer-title">FLASH SALE - 20% OFF ALL PACKS</div>
+  </div>
+  <div class="offer-desc">Hurry! Offer ends in:</div>
+  <div class="countdown">
+    <div class="time-box"><span class="num" id="hours">24</span><span class="txt">HOURS</span></div>
+    <div class="time-box"><span class="num" id="minutes">00</span><span class="txt">MINUTES</span></div>
+    <div class="time-box"><span class="num" id="seconds">00</span><span class="txt">SECONDS</span></div>
+  </div>
+</div>
+
 <!-- STEP 1 - ID VERIFY -->
 <div class="verify-box" id="verifyBox">
 <div class="step-title"><div class="step-number">1</div> ID Verify</div>
@@ -91,7 +119,7 @@ body{background:#f5f7fa;color:#222;} /* WHITE BG */
 <button class="change-id" onclick="changeID()">CHANGE ID</button>
 </div>
 
-<!-- STEP 2 - PACKAGES ALWAYS VISIBLE -->
+<!-- STEP 2 - PACKAGES -->
 <div id="packageSection">
 <div class="step-title"><div class="step-number">2</div> Select Package</div>
 <div id="packages"></div>
@@ -111,6 +139,11 @@ Items: <span id="cartCount">0</span> | Total: <span class="cart-total" id="cartT
 
 let cart = [];
 let verified = false;
+
+// 🔥 OFFER TIME EKA MEKEN SET KARANNA - 24 or 48
+let offerHours = 24; // meka 24 or 48 karanna puluwan
+let offerMinutes = 0;
+let offerSeconds = 0;
 
 const packagesData = [
   {
@@ -162,25 +195,47 @@ const packagesData = [
   }
 ];
 
-// PAGE LOAD WENAKOTAMA PACK TIKA LOAD
+// PAGE LOAD
 window.onload = function(){
 loadPackages();
+startCountdown();
+}
+
+function startCountdown(){
+setInterval(() => {
+if(offerSeconds > 0){
+offerSeconds--;
+}else{
+offerSeconds = 59;
+if(offerMinutes > 0){
+offerMinutes--;
+}else{
+offerMinutes = 59;
+if(offerHours > 0){
+offerHours--;
+}
+}
+
+document.getElementById('hours').innerText = String(offerHours).padStart(2,'0');
+document.getElementById('minutes').innerText = String(offerMinutes).padStart(2,'0');
+document.getElementById('seconds').innerText = String(offerSeconds).padStart(2,'0');
+
+if(offerHours <= 0 && offerMinutes <= 0 && offerSeconds <= 0){
+document.querySelector('.offer-title').innerText = 'OFFER ENDED 😢';
+}
+}, 1000);
 }
 
 function verifyUID(){
 let uid = document.getElementById('uidInput').value;
-let ffName = document.getElementById('ffNameInput').value;
 if(uid.length < 8){
 alert('Please enter valid UID');
 return;
 }
-
 document.getElementById('verifyBtn').innerText = 'VERIFYING...';
 document.getElementById('verifyBtn').disabled = true;
-
 setTimeout(() => {
 document.getElementById('playerUID').innerText = 'UID: ' + uid;
-
 document.getElementById('verifyBox').style.display = 'none';
 document.getElementById('verifiedBox').style.display = 'block';
 verified = true;
@@ -200,12 +255,10 @@ verified = false;
 function loadPackages(){
 const packagesDiv = document.getElementById('packages');
 packagesDiv.innerHTML = '';
-
 packagesData.forEach(pkg => {
   let html = `<div class="package-section">`;
   html += `<h2 class="package-title">${pkg.title}</h2>`;
   html += `<div class="grid">`;
-  
   pkg.items.forEach((item, index) => {
     let id = pkg.title.replace(/\s/g,'') + index;
     html += `
@@ -221,7 +274,6 @@ packagesData.forEach(pkg => {
     </div>
     `;
   });
-  
   html += `</div></div>`;
   packagesDiv.innerHTML += html;
 });
@@ -232,7 +284,6 @@ let qtyEl = document.getElementById('qty-'+id);
 let qty = parseInt(qtyEl.innerText) + change;
 if(qty < 0) qty = 0;
 qtyEl.innerText = qty;
-
 let found = cart.find(i => i.id === id);
 if(found){
 found.qty = qty;
@@ -266,18 +317,15 @@ alert('Please select at least 1 item');
 return;
 }
 if(!verified){
-alert('Please verify your ID first!'); // MEKA THAMAI WADAGATH DE
+alert('Please verify your ID first!');
 return;
 }
-
 let uid = document.getElementById('uidInput').value;
 let ffName = document.getElementById('ffNameInput').value;
-
 if(ffName.trim() === ''){
 alert('Please enter your Free Fire Name');
 return;
 }
-
 localStorage.setItem('cart', JSON.stringify(cart));
 localStorage.setItem('uid', uid);
 localStorage.setItem('playerName', ffName);
