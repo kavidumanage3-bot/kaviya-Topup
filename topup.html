@@ -11,19 +11,16 @@
 body{background:#f5f7fa;color:#222;}
 .container{max-width:650px;margin:0 auto;padding:20px 15px;}
 
-/* 🔥 NEW OFFER BOX */
-.offer-box{background:linear-gradient(135deg, #ff6b00, #ff8a00);border-radius:20px;padding:20px;margin-bottom:25px;color:#fff;box-shadow:0 8px 25px rgba(255,107,0,0.3);border:2px solid #fff;position:relative;overflow:hidden;}
-.offer-box::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,0.1),transparent);animation:shine 3s infinite;}
-@keyframes shine{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg);}100%{transform:translateX(100%) translateY(100%) rotate(45deg);}}
-.offer-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;position:relative;z-index:2;}
-.offer-header .fire{font-size:24px;animation:shake 1s infinite;}
-@keyframes shake{0%,100%{transform:rotate(0);}25%{transform:rotate(-10deg);}75%{transform:rotate(10deg);}}
-.offer-title{font-size:18px;font-weight:800;}
-.offer-desc{font-size:13px;opacity:0.95;margin-bottom:15px;position:relative;z-index:2;}
-.countdown{display:flex;justify-content:space-between;gap:8px;position:relative;z-index:2;}
-.time-box{background:rgba(255,255,255,0.25);border-radius:12px;padding:12px 5px;text-align:center;flex:1;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.3);}
-.time-box .num{font-size:24px;font-weight:800;display:block;}
-.time-box .txt{font-size:10px;opacity:0.95;}
+/* 🔥 COMPACT OFFER BOX */
+.offer-box{background:linear-gradient(135deg, #ff6b00, #ff8a00);border-radius:16px;padding:14px 16px;margin-bottom:20px;color:#fff;box-shadow:0 4px 15px rgba(255,107,0,0.25);}
+.offer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.offer-title{font-size:15px;font-weight:800;display:flex;align-items:center;gap:6px;}
+.offer-title .fire{font-size:18px;}
+.offer-badge{font-size:10px;background:rgba(255,255,255,0.25);padding:4px 8px;border-radius:20px;font-weight:700;}
+.countdown{display:flex;justify-content:space-between;gap:6px;}
+.time-box{background:rgba(0,0,0,0.15);border-radius:10px;padding:8px 4px;text-align:center;flex:1;}
+.time-box .num{font-size:18px;font-weight:800;display:block;line-height:1;}
+.time-box .txt{font-size:9px;opacity:0.9;margin-top:2px;}
 
 /* STEP 1 - VERIFY BOX */
 .verify-box{background:#fff;border-radius:20px;padding:20px;margin-bottom:25px;border:1px solid #e0e0e0;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
@@ -85,15 +82,14 @@ body{background:#f5f7fa;color:#222;}
 
 <!-- 🔥 FLASH SALE OFFER BOX -->
 <div class="offer-box">
-  <div class="offer-header">
-    <div class="fire">🔥</div>
-    <div class="offer-title">FLASH SALE - 20% OFF ALL PACKS</div>
+  <div class="offer-top">
+    <div class="offer-title"><span class="fire">🔥</span>FLASH SALE</div>
+    <div class="offer-badge">20% OFF</div>
   </div>
-  <div class="offer-desc">Hurry! Offer ends in:</div>
   <div class="countdown">
-    <div class="time-box"><span class="num" id="hours">24</span><span class="txt">HOURS</span></div>
-    <div class="time-box"><span class="num" id="minutes">00</span><span class="txt">MINUTES</span></div>
-    <div class="time-box"><span class="num" id="seconds">00</span><span class="txt">SECONDS</span></div>
+    <div class="time-box"><span class="num" id="hours">24</span><span class="txt">HRS</span></div>
+    <div class="time-box"><span class="num" id="minutes">00</span><span class="txt">MINS</span></div>
+    <div class="time-box"><span class="num" id="seconds">00</span><span class="txt">SECS</span></div>
   </div>
 </div>
 
@@ -140,10 +136,8 @@ Items: <span id="cartCount">0</span> | Total: <span class="cart-total" id="cartT
 let cart = [];
 let verified = false;
 
-// 🔥 OFFER TIME EKA MEKEN SET KARANNA - 24 or 48
-let offerHours = 24; // meka 24 or 48 karanna puluwan
-let offerMinutes = 0;
-let offerSeconds = 0;
+// 🔥 TIMER SET KARANNA MEKEN - 24 HOURS
+let totalSeconds = 24 * 60 * 60; // 24 hours
 
 const packagesData = [
   {
@@ -195,35 +189,31 @@ const packagesData = [
   }
 ];
 
-// PAGE LOAD
 window.onload = function(){
 loadPackages();
 startCountdown();
 }
 
 function startCountdown(){
+updateTimerDisplay();
 setInterval(() => {
-if(offerSeconds > 0){
-offerSeconds--;
-}else{
-offerSeconds = 59;
-if(offerMinutes > 0){
-offerMinutes--;
-}else{
-offerMinutes = 59;
-if(offerHours > 0){
-offerHours--;
-}
-}
-
-document.getElementById('hours').innerText = String(offerHours).padStart(2,'0');
-document.getElementById('minutes').innerText = String(offerMinutes).padStart(2,'0');
-document.getElementById('seconds').innerText = String(offerSeconds).padStart(2,'0');
-
-if(offerHours <= 0 && offerMinutes <= 0 && offerSeconds <= 0){
-document.querySelector('.offer-title').innerText = 'OFFER ENDED 😢';
+if(totalSeconds > 0){
+totalSeconds--;
+updateTimerDisplay();
 }
 }, 1000);
+}
+
+function updateTimerDisplay(){
+let h = Math.floor(totalSeconds / 3600);
+let m = Math.floor((totalSeconds % 3600) / 60);
+let s = totalSeconds % 60;
+document.getElementById('hours').innerText = String(h).padStart(2,'0');
+document.getElementById('minutes').innerText = String(m).padStart(2,'0');
+document.getElementById('seconds').innerText = String(s).padStart(2,'0');
+if(totalSeconds <= 0){
+document.querySelector('.offer-title').innerHTML = '<span class="fire">😢</span>OFFER ENDED';
+}
 }
 
 function verifyUID(){
